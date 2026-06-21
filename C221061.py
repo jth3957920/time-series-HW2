@@ -235,9 +235,9 @@ if uploaded_file is not None:
         t1_c1, t1_c2 = st.columns([1, 3])
         
         with t1_c1:
-            sk_models = st.multiselect("모델 선택", ["Naive", "SMA", "Exp Smoothing", "Holt-Winters", "STL Forecaster", "AutoARIMA"], default=["Holt-Winters", "AutoARIMA"])
+            sk_models = st.multiselect("모델 선택", ["Naive", "SMA", "Exp Smoothing", "Holt-Winters", "STL Forecaster", "AutoARIMA"], default=["Naive", "SMA", "Exp Smoothing", "Holt-Winters", "STL Forecaster", "AutoARIMA"])
             max_test_size = max(2, len(working_df) // 2)
-            test_size = st.slider("예측 기간 (Test Size)", 1, max_test_size, min(12, max_test_size))
+            test_size = st.slider("예측 기간 (Test Size)", 1, max_test_size, min(52, max_test_size))
             run_btn1 = st.button("단일 예측 시작", type="primary", use_container_width=True)
             
         if run_btn1:
@@ -270,7 +270,7 @@ if uploaded_file is not None:
         with t2_c1:
             darts_model_name = st.selectbox("Darts 모델", ["AutoARIMA", "Exponential Smoothing", "Naive Seasonal"])
             max_test_size2 = max(2, len(working_df) // 2)
-            darts_horizon = st.slider("테스트 기간 (뒷부분 예측 개수)", 1, max_test_size2, min(12, max_test_size2))
+            darts_horizon = st.slider("테스트 기간 (뒷부분 예측 개수)", 1, max_test_size2, min(52, max_test_size2))
             
             do_backtest = st.checkbox("롤링 백테스팅 추가 수행", value=False)
             if do_backtest:
