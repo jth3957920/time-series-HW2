@@ -1,0 +1,10 @@
+
+streamlit
+pandas
+numpy
+plotly
+sktime==0.35.0
+statsmodels
+darts==0.30.0
+statsforecast
+narwhals
