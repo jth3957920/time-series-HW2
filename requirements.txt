@@ -1,10 +1,8 @@
-
 streamlit
 pandas
 numpy
 plotly
-sktime==0.35.0
+sktime
 statsmodels
-darts==0.30.0
-statsforecast
+u8darts[statsforecast]
 narwhals
